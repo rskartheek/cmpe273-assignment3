@@ -519,11 +519,15 @@ func (lc *LocationController) ModifyPlan(rw http.ResponseWriter, req *http.Reque
 
 	c := lc.session.DB("go_rest_api_assignment2").C("priceEstimator")
 	savedTripObjet := ModifyTrip{}
+	oid := bson.ObjectIdHex(id)
 	err := c.Find(bson.M{"id": id}).One(&savedTripObjet)
-	if err != nil {
+	fmt.Println(oid)
+	// Fetch user
+	if err := lc.session.DB("go_rest_api_assignment2").C("priceEstimator").FindId(oid).One(&savedTripObjet); err != nil {
 		fmt.Fprint(rw, "Data not found")
 		return
 	}
+
 	if savedTripObjet.Next == len(savedTripObjet.Best_route_location_ids) {
 		rw.WriteHeader(http.StatusCreated)
 		fmt.Fprint(rw, "You have completed the trip")
@@ -620,8 +624,16 @@ func (lc *LocationController) ModifyPlan(rw http.ResponseWriter, req *http.Reque
 	}
 	fmt.Fprint(rw, string(updateTripJson))
 }
+func initialize() {
+	bestRouteStringArray = nil
 
+	totalDuration = 0
+	totalPrice = 0
+	totalDistance = 0
+
+}
 func loopingFunc(initialCoordinates Coordinates, coordinateArray []Coordinates, m map[string]Coordinates) {
+	initialize()
 	var bestRoute []Coordinates
 	for len(coordinateArray) > 1 {
 		var index int
