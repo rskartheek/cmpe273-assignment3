@@ -147,11 +147,11 @@ type EstimatedTime struct {
 	Product_id      string `json:"product_id"`
 }
 
-var accessToken = "eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJzY29wZXMiOlsicmVxdWVzdCJdLCJzdWIiOiI0MzM1NGQ0ZS03MzExLTRjNzgtOGUwZS1hMjRhYjZkYzQ3MTEiLCJpc3MiOiJ1YmVyLXVzMSIsImp0aSI6IjRhNzMxOGQwLTQ2NjEtNGE2Yi04YzQ5LTVkMWJmZGM3MjY0ZiIsImV4cCI6MTQ1MDc3NDU3MCwiaWF0IjoxNDQ4MTgyNTcwLCJ1YWN0IjoiVW1zQVVYaER6R0FFbXlkcWZvTlZGWVNSZ2RFQzF0IiwibmJmIjoxNDQ4MTgyNDgwLCJhdWQiOiJ1cklUVVJ3SmFNQm1zcE02QTBnSHNtWkRiQzBidnVlUCJ9.YhEIY2kJBxwF1kk8VAzyRkwCFSavzX1A_0E2R-l6G17fbluDQn1FnHQlaOSRgVsd7gAnEOF4wTi2W4bYhMMw17FML7JmdX8ws6Kb01ZzMMRbHkCwkSvZtOjGRLD5EBHBuTLBoaIY-zYfvsDO5MDeKj2Hi9d_WHMNbg2d-8nP_Bci1gShPg3U3FQZQFzlU9zRelA4hsFzkWNXkSSNf6wlwXRpEW4nsQJS3__D5alpWDS1becWtOQu_EgWCwpkQfNA1YquCgu-n1pvj7EGqSk8c0SIFft7D9DLinrVVkQ-_Rn9IEkR_iIz2KKELnuN8ZrWqDyBmYiMRC023AzJweeaxA"
+var accessToken = "-----------------------------"
 
 func getSession() *mgo.Session {
 	// Connect to our local mongo
-	s, err := mgo.Dial("mongodb://assignment2:cmpe273Assignment2@ds037824.mongolab.com:37824/go_rest_api_assignment2")
+	s, err := mgo.Dial("--------------------------------")
 
 	// Check if connection error, is mongo running?
 	if err != nil {
